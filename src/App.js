@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.jsx
+
+import React, { Suspense } from 'react';
+import DogImageDisplay from './components/DogImageDisplay';
+import DogImageButton from './components/DogImageButton'; 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: '20px', fontFamily: 'sans-serif', textAlign: 'center' }}>
+      <h1>Recoil Async Image Fetch Example</h1>
+      
+      {/* NO RecoilRoot here */}
+      <DogImageButton /> 
+      
+      <Suspense fallback={<div>Fetching dog photo... 🐕</div>}>
+        <DogImageDisplay />
+      </Suspense>
     </div>
   );
 }
